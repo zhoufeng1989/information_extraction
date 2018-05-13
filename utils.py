@@ -8,5 +8,3 @@ def tokenize(filename):
     return tokenized_sents
 
 
-import warnings
-warnings.filterwarnings("ignore", category=DeprecationWarning)
