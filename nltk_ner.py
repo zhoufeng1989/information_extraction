@@ -6,8 +6,9 @@ from utils import tokenize
 def nltk_ner(filename):
     tokenized_sents = tokenize(filename)
     orgs = []
-    for words in tokenized_sents:
-        orgs.extend(extract_orgs(words))
+    for (index, words) in enumerate(tokenized_sents):
+        _orgs = extract_orgs(words)
+        orgs.extend([(index, org) for org in _orgs])
     return orgs
 
 
