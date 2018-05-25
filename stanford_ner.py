@@ -7,8 +7,8 @@ jar_dir = os.getenv("STANFORD_JAR")
 stanford_tagger = StanfordNERTagger(model_dir, jar_dir)
 
 
-def stanford_ner(filename):
-    tokenized_sents = tokenize(filename)
+def stanford_ner(text):
+    tokenized_sents = tokenize(text)
     orgs = []
     for (index, words) in enumerate(tokenized_sents):
         _orgs = extract_orgs(words)

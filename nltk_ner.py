@@ -3,19 +3,19 @@ from nltk.tree import Tree
 from utils import tokenize
 
 
-def nltk_ner(filename):
-    tokenized_sents = tokenize(filename)
+def nltk_ner(text):
+    tokenized_sents = tokenize(text)
     orgs = []
-    for (index, words) in enumerate(tokenized_sents):
-        _orgs = extract_orgs(words)
+    for (index, tokenized_sent) in enumerate(tokenized_sents):
+        _orgs = extract_orgs(tokenized_sent)
         orgs.extend([(index, org) for org in _orgs])
     return orgs
 
 
-def extract_orgs(words):
+def extract_orgs(tokenized_sent):
     orgs = []
-    pos_words = pos_tag(words)
-    for trunk in ne_chunk(pos_words):
+    pos_tokenized_sent = pos_tag(tokenized_sent)
+    for trunk in ne_chunk(pos_tokenized_sent):
         if isinstance(trunk, Tree):
             label = trunk.label()
             if label == "ORGANIZATION":
