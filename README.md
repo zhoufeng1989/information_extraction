@@ -1,5 +1,5 @@
 # information_extraction
-An information extraction task with NLTK
+An information extraction task with NLTK, Stanford NER and Spacy.
 
 # NER task 
 In this repo, there are four ways to do NER tasks.
@@ -37,3 +37,7 @@ There is one dataset to evaluate the performance of ners.
 `export STANFORD_MODE="jars/english.all.3class.distsim.crf.ser.gz"` 
 `export STANFORD_JAR="jars/stanford-corenlp-3.9.1.jar"`  
 `python main_eval.py data/conll2003.txt stanford` 
+
+# TODO  
+
+Dependency analysis, extract verbs related to named entities.
