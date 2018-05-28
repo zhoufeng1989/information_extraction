@@ -1,5 +1,6 @@
 # information_extraction
-An information extraction task with NLTK, Stanford NER and Spacy.
+An information extraction task with NLTK, Stanford NER and Spacy.  
+Only Python3 is supported. 
 
 # NER task 
 In this repo, there are four ways to do NER tasks.
