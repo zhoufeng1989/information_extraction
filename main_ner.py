@@ -51,8 +51,10 @@ def save_result(orgs, indexes, ner_name):
         pass
     orgs_file = os.path.join(result_dir, f"{ner_name}_orgs.csv")
     indexes_file = os.path.join(result_dir, f"{ner_name}_indexes.csv")
+    print(f"organizations are saved into {orgs_file}")
+    print(f"sentense indexes are saved into {indexes_file}")
 
-    with open(orgs_file, "a") as f_org, open(indexes_file, "a") as f_index:
+    with open(orgs_file, "w") as f_org, open(indexes_file, "w") as f_index:
         for (org, cnt) in counter.most_common():
             f_org.write(f"{org},{cnt}\n")
             _indexes = indexes[org]

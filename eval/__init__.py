@@ -113,5 +113,6 @@ def evaluate(dataset, recognizer):
     predicted_name_entities = annotate(sents, annotate_org)
     save_result(name_entities, predicted_name_entities)
     acc, pre, rec, f, matrix = get_measures(name_entities, predicted_name_entities)
+    print(f"evaluate result are saved into {result_file}")
     open(result_file, "a").write(
         f"{recognizer} evaluation on {dataset}, accuracy={acc}, precision={pre}, recall={rec}, f_measure={f}, matrix={matrix}\n")
