@@ -85,10 +85,10 @@ def get_measures(reference, test):
     return acc, pre, rec, f, matrix
 
 
-def save_result(reference, test):
+def save_result(reference, test, ref_file, test_file):
     keep_same_length(reference, test)
-    ref_file = "eval_ref.txt"
-    test_file = "eval_test.txt"
+    print(f"ground truth in {ref_file}")
+    print(f"predictions in {test_file}")
     with open(ref_file, "w") as f:
         list(map(lambda item: f.write(" ".join(item) + "\n"), reference))
     with open(test_file, "w") as f:
@@ -111,7 +111,9 @@ def evaluate(dataset, recognizer):
     else:
         from .eval_spacy import annotate_org
     predicted_name_entities = annotate(sents, annotate_org)
-    save_result(name_entities, predicted_name_entities)
+    ref_file = os.path.join(result_dir, "eval_ref.txt")
+    test_file = os.path.join(result_dir, "eval_test.txt")
+    save_result(name_entities, predicted_name_entities, ref_file, test_file)
     acc, pre, rec, f, matrix = get_measures(name_entities, predicted_name_entities)
     print(f"evaluate result are saved into {result_file}")
     open(result_file, "a").write(
